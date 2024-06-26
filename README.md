@@ -345,25 +345,35 @@ Linux codespaces-f4caff 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08
 
 ```
 
-11. What is the available free memory in the system. ***(1 mark)*** __Fill answer here__.
+11. What is the available free memory in the system. ***(1 mark)*** __6.1Gi__.
 
 
-12. What is the available disk space mounted on /workspace. ***(1 mark)*** __Fill answer here__.
+12. What is the available disk space mounted on /workspace. ***(1 mark)*** __20772560__.
 
 
-13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Fill answer here__.
+13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Linux codespaces-f4caff 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux__.
 
 
-14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** __Fill answer here__.
+14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** __ls -asl provides a more detailed and comprehensive view of directory contents, including hidden files, file sizes, and detailed metadata.__.
 
 
-15. What is the TLB size of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
+15. What is the TLB size of the Virtual CPU. ***(1 mark)*** __2560 4K pages__.
 
 
-16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** __Fill answer here__.
+16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** __2996.266 MHz__.
 
 
-17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** __Fill answer here__.
+17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** __PID: 3055__.
+```bash
+top - 12:52:39 up 20 min,  0 users,  load average: 0.29, 0.26, 0.36
+Tasks:  17 total,   1 running,  16 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.7 us,  1.3 sy,  0.0 ni, 97.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7929.6 total,    204.7 free,   1386.5 used,   6338.4 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6162.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                       
+   3055 codespa+  20   0   21.5g 335528  49792 S   0.7   4.1   0:29.76 node                                                                  
+```
 
 ## Running your own container instance.
 
