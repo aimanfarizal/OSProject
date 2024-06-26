@@ -551,11 +551,81 @@ docker run -itd --net rednet --name c2 busybox sh
 ```
 ***Questions:***
 
-1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __Fill answer here__.
+1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __BusyBox is a compact and versatile toolset that consolidates multiple standard Unix utilities into a single executable. It is designed primarily for environments with limited resources, such as embedded systems or lightweight container environments, where having a full suite of separate binaries may not be feasible. BusyBox provides implementations of essential Unix commands, including file manipulation (ls, cat, cp, mv, rm), text processing (grep, sed, awk), networking utilities (ping, ifconfig), and more, all bundled into a single binary.....The --name command switch in Docker allows you to assign a specific name to a container when you create or run it. This name serves as a human-readable identifier for the container and can be used in place of its container ID in Docker commands. Using --name is particularly useful for managing and referencing containers easily, especially when handling multiple containers concurrently on the same Docker host.__.
+
 2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** __Fill answer here__.
-3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** __Fill answer here__.
-4. What is the network address for the running container c1 and c2? ***(1 mark)*** __Fill answer here__.
-5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
+```bash
+@aimanfarizal ➜ /workspaces/OSProject (main) $ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+2ef112f0c4e4   bluenet   bridge    local
+22e8d9d9925d   bridge    bridge    local
+f93a442c9bec   host      host      local
+41241ac39925   none      null      local
+5419a3c4d76c   rednet    bridge    local
+```
+
+3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** __Bluenet: 172.18.0.1, Rednet:172.19.0.1__.
+```bash
+@aimanfarizal ➜ /workspaces/OSProject (main) $ docker inspect c1
+.
+.
+"Networks": {
+                "bluenet": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "MacAddress": "02:42:ac:12:00:02",
+                    "NetworkID": "2ef112f0c4e41d4c15599a4907a180d552e62d95686ab5c3137d238a620953d9",
+                    "EndpointID": "83267e61c39d5ac7417a9d0cf8f2c777169465992f7aaad59d8930faf927e378",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DriverOpts": null,
+                    "DNSNames": [
+                        "c1",
+                        "3e751a260f56"
+                    ]
+                }
+.
+.
+@aimanfarizal ➜ /workspaces/OSProject (main) $ docker inspect c1
+"Networks": {
+                "rednet": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "MacAddress": "02:42:ac:13:00:02",
+                    "NetworkID": "5419a3c4d76c424053b1269e84053818dc679f2ce42be0b4ba84291209b95f89",
+                    "EndpointID": "5224e51f85e8782a7323e8e6e9a870e74f75fa8e3c44b5b491895cbbc64bf728",
+                    "Gateway": "172.19.0.1",
+                    "IPAddress": "172.19.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DriverOpts": null,
+                    "DNSNames": [
+                        "c2",
+                        "7de63d62a2a3"
+                    ]
+                }
+.
+.
+```
+
+4. What is the network address for the running container c1 and c2? ***(1 mark)*** __c1 (bluenet): Network address 172.18.0.0, c2 (rednet): Network address 172.19.0.0__.
+
+
+5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** __No because i get bad address__.
+```bash
+@aimanfarizal ➜ /workspaces/OSProject (main) $ docker exec c1 ping c2
+ping: bad address 'c2'
+
+```
+
 
 ## Bridging two SUB Networks
 1. Let's try this again by creating a network to bridge the two containers in the two subnetworks
