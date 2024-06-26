@@ -312,7 +312,30 @@ power management:
 
 9. Run the command **top** and type **q** to quit. ***(1 mark)*** __Fill answer here__.
 ```bash
-@aimanfarizal ➜ /workspaces/OSProject (main) $ 
+top - 12:52:39 up 20 min,  0 users,  load average: 0.29, 0.26, 0.36
+Tasks:  17 total,   1 running,  16 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.7 us,  1.3 sy,  0.0 ni, 97.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7929.6 total,    204.7 free,   1386.5 used,   6338.4 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6162.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                       
+   3055 codespa+  20   0   21.5g 335528  49792 S   0.7   4.1   0:29.76 node                                                                          
+   3239 codespa+  20   0 1117228  62496  42240 S   0.3   0.8   0:01.45 node                                                                          
+      1 codespa+  20   0    1136    640    640 S   0.0   0.0   0:00.03 docker-init                                                                   
+      8 codespa+  20   0    7236   1792   1792 S   0.0   0.0   0:00.01 sleep                                                                         
+     56 root      20   0   12196   3352   2432 S   0.0   0.0   0:00.00 sshd                                                                          
+    901 root      20   0 1983432  85632  52736 S   0.0   1.1   0:00.21 dockerd                                                                       
+    908 root      20   0 1798832  44476  30208 S   0.0   0.5   0:00.20 containerd                                                                    
+   1663 codespa+  20   0    2616   1408   1408 S   0.0   0.0   0:00.01 sh                                                                            
+   1693 root      20   0    2616   1536   1536 S   0.0   0.0   0:00.00 sh                                                                            
+   2650 codespa+  20   0    2624   1536   1536 S   0.0   0.0   0:00.00 sh                                                                            
+   2666 codespa+  20   0 1324144  99236  45440 S   0.0   1.2   0:06.59 node                                                                          
+   2792 codespa+  20   0 1240308  54436  41472 S   0.0   0.7   0:00.26 node                                                                          
+   3736 codespa+  20   0 1012056  78920  40832 S   0.0   1.0   0:04.68 node                                                                          
+   4220 codespa+  20   0    2616   1408   1408 S   0.0   0.0   0:00.00 sh                                                                            
+   4288 root      20   0    2616   1408   1408 S   0.0   0.0   0:00.00 sh                                                                            
+   4465 codespa+  20   0   16628  11520   3456 S   0.0   0.1   0:00.19 bash                                                                          
+  11675 codespa+  20   0   10880   3712   3200 R   0.0   0.0   0:00.00 top 
 ```
 
 10. Run the command **uname -a**. ***(1 mark)*** __Fill answer here__.
