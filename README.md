@@ -451,17 +451,53 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 @joeynor ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
 ```
+```bash 
+@aimanfarizal ➜ /workspaces/OSProject (main) $ mkdir myroot
+@aimanfarizal ➜ /workspaces/OSProject (main) $ cd myroot/
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ pwd
+/workspaces/OSProject/myroot
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
+9d577687461b1a073f3f19a86b6e2f93a7de03868981565da910a0867151da62
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ touch /root/myfile.txt
+touch: cannot touch '/root/myfile.txt': Permission denied
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ docker exec -it $(docker ps -q -f ancestor=debian) /bin/bash
+root@9d577687461b:/# touch /root/myfile.txt
+root@9d577687461b:/# echo "Hello persistent storage! We from group Linux Cheese" > /root/myfile.txt
+root@9d577687461b:/# ls /workspace/OSProject/myroot
+ls: cannot access '/workspace/OSProject/myroot': No such file or directory
+root@9d577687461b:/# exit
+exit
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ ls /workspace/OSProject/myroot
+ls: cannot access '/workspace/OSProject/myroot': No such file or directory
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ ls /workspaces/OSProject/myroot
+myfile.txt
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ cat /workspaces/OSProject/myroot/myfile.
+txt
+Hello persistent storage! We from group Linux Cheese
+```
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __rw-rw-rw means permission grant to all user. root is the user and group ownership of "myfile.txt"__.
+```bash
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ ls -l /workspaces/OSProject/myroot
+total 4
+-rw-rw-rw- 1 root root 53 Jun 26 14:31 myfile.txt
+
+```
+
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+```bash
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ sudo chown codespace: /workspaces/OSProject/myroot/myfile.txt
+@aimanfarizal ➜ /workspaces/OSProject/myroot (main) $ ls -l /workspaces/OSProject/myroot/myfile.txt
+-rw-rw-rw- 1 codespace codespace 53 Jun 26 14:31 /workspaces/OSProject/myroot/myfile.txt
+```
+*** __Can, now the owner is codespace__.***
 
 ## You are on your own, create your own static webpage
 
