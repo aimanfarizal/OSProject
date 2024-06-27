@@ -348,7 +348,7 @@ Linux codespaces-f4caff 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08
 11. What is the available free memory in the system. ***(1 mark)*** __6.1Gi__.
 
 
-12. What is the available disk space mounted on /workspace. ***(1 mark)*** __20772560__.
+12. What is the available disk space mounted on /workspace. ***(1 mark)*** __20772560KB or 20.77GB__.
 
 
 13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Linux codespaces-f4caff 6.5.0-1021-azure #22~22.04.1-Ubuntu SMP Tue Apr 30 16:08:18 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux__.
