@@ -5,7 +5,7 @@ Group Name: __Linux Cheese__.
 Section: __Section 3__. 
 
 Team Mates:
-1. __Aiman bin Farizal Yee__ and __2219069__
+1. __Aiman bin Farizal Yee-Ar__ and __2219069__
 2. __Taib Muhammad Naufal bin Taib Iskandar__ and __2215661__
 3. __Muhammad Hasif Irfan bin A. Mazlam__ and __2219299__
 
